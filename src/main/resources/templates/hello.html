@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>TechIndustry</title>
+</head>
+<body>
+<h1 th:inline="text">Сейчас занимается продажами [[${#httpServletRequest.remoteUser}]]</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Sum</th>
+        <th>Datain</th>
+        <th>Datasell</th>
+        <th>Identif</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tempSales:${sales1}">
+        <td th:text="${tempSales.sum}"/>
+        <td th:text="${tempSales.datain}"/>
+        <td th:text="${tempSales.datasell}"/>
+        <td th:text="${tempSales.identif}"/>
+    </tr>
+   <!-- <tr>
+        <td><input type="text" name="addsum"/></td>
+        <td><input type="text" name="adddatain"/></td>
+        <td><input type="text" name="datasell"/></td>
+        <td><input type="text" name="identif"/></td>
+    </tr>-->
+
+    </tbody>
+
+</table>
+
+<form th:action="@{/add}" method="post">
+<input type="text" name="addsum"/>
+<input type="text" name="adddatain"/>
+<input type="text" name="datasell"/>
+<input type="text" name="identif"/>
+<input type="submit" value="Добавить"/>
+</form>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти из профиля"/>
+</form>
+</body>
+</html>
