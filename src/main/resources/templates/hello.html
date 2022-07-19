@@ -29,7 +29,30 @@
         <td><input type="text" name="datasell"/></td>
         <td><input type="text" name="identif"/></td>
     </tr>-->
+    </tbody>
 
+</table>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>text</th>
+        <th>tag</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tempMessage:${message1}">
+        <td th:text="${tempMessage.id}"/>
+        <td th:text="${tempMessage.text}"/>
+        <td th:text="${tempMessage.tag}"/>
+    </tr>
+    <!-- <tr>
+         <td><input type="text" name="addsum"/></td>
+         <td><input type="text" name="adddatain"/></td>
+         <td><input type="text" name="datasell"/></td>
+         <td><input type="text" name="identif"/></td>
+     </tr>-->
     </tbody>
 
 </table>
